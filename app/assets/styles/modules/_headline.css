@@ -1,0 +1,61 @@
+.headline {
+   
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: $mainBlue;
+
+    @mixin atSmall {
+        /* 46 pixels divide by 16 pixels = 2.875rem */
+        /* 46 px is measured by drag rect acrosss until letter g */
+        font-size: 2.875rem;
+    }
+
+    /* modifier class */
+    &--centered {
+        text-align: center;
+    }
+
+    &--orange {
+        color: $mainOrange;
+    }
+
+    &--small {
+
+        /* baseline font-size smaller */
+        font-size: 1.2rem;
+
+        @mixin atSmall {
+        /* 30 / 16 = 1.875rem */
+        font-size: 1.875rem;
+        }
+    }
+
+    &--narrow {
+        max-width: 500px;
+
+        /* center */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &--light {
+        font-weight: 100;
+    }
+
+    /* no need & modifier because it is default html */
+    strong {
+        font-weight: 400;
+    }
+
+    &--b-margin-small {
+        /* em is relative to font size of element itself
+        can reuse for other font size */
+        margin-bottom: .5em
+    }
+
+    &--b-margin-large {
+        /* em is relative to font size of element itself
+        can reuse for other font size */
+        margin-bottom: 1.6em
+    }
+}

@@ -1,0 +1,16 @@
+/* global attributes */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* set once for every element on the page
+auto calcualate the width of gutter */
+* {
+  box-sizing: border-box;
+}

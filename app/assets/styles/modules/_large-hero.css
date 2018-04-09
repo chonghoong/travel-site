@@ -1,0 +1,110 @@
+/* _ indicates file is partial file. will import into other file
+* follow BEM principle here. elements are nested in a block
+* & == large-hero
+* rem instead of pixel . relative to root of the <html>
+* browser will take whatever the font size of <html> element
+* most web browsers default font size of 16 pixels. 16 pixels * 1.5 = 24 pixels
+* cater to different users font size preferences
+* e.g. 30 pixels / 16 = 1.875 rem
+*/
+
+.large-hero {
+  border-bottom: 10px solid $mainBlue;
+  position: relative;
+
+  &__image {
+
+    /* default image is inline level element, there will be a space below for letters*/
+    /* change this to block level element  */
+    display: block;
+
+    /* safari browser requires this to scale the image*/
+    width: 100%;
+  }
+
+  &__text-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 300;
+    color: $mainBlue;
+    /* mobile first  */
+    /* font-size: 4.8rem; */
+    margin: 0;
+    font-size: 2.4rem;
+  
+    /* use mixin - reusable pc of code
+    @media (min-width: 530px) {
+      font-size: 4.8rem;
+    } */
+
+    /* // beginning at the size of atSmall, before should be smallest */
+    @mixin atSmall {
+      font-size: 4.8rem;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    color: $mainBlue;
+    font-size: 1.5rem;
+    margin: 0;
+
+    @mixin atSmall {
+      font-size: 2.9rem;
+    }
+
+  }
+
+  &__description{
+    color: #FFF;
+    /* baseline fontsize for smallest mobile */
+    font-size: 1.1rem;
+    font-weight: 100;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
+    /*max-width: 480px;*/
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @mixin atSmall {
+      font-size: 1.875rem;
+    }
+  }
+}
+
+/* nested CSS trick - to conform to BEM
+reason to nest because title and subtitle "belong" to the
+large-hero block
+.large-hero__text-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+}*/
+
+/*type and descendents way are the old way - use BEM*/
+/*give a class name for every element*/
+/*.large-hero h1 {
+  font-weight: 300;
+}*/
+
+/*.large-hero__title {
+  font-weight: 300;
+  color: #2f5572;
+  font-size: 4.8rem;
+}
+
+.large-hero__subtitle {
+  font-weight: 300;
+  color: #2f5572;
+  font-size: 2.9rem;
+}*/

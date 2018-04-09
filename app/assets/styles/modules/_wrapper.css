@@ -1,0 +1,44 @@
+
+/* this is a design pattern that we can re-use */
+.wrapper {
+    /* background-color: green; */
+
+    /* hide negative margin still exists but hide the overflow margin */
+    /* for the second row */
+    overflow: hidden;
+    
+    padding-left: 18px;
+    padding-right: 18px;
+
+    /* for the text width */
+    /* box-sizing: border-box decreases the max-width by 18 x 2 = 36px */
+    /* add it back */
+    max-width: 1236px;
+
+    /* center the text */
+    margin-left: auto;
+    margin-right: auto;
+
+    &--medium {
+        max-width: 976px;
+    }
+
+    /* if mobile, we want the image to use the full mobile screen size 
+    remove padding. condition if wrapper class is nested inside a wrapper class 
+    e.g. first-trip.jpg */
+    .wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &--b-margin {
+
+        margin-bottom: .5rem;
+
+        @mixin atSmall {
+            /* 62 px / 16 px = 3.875rem */
+        margin-bottom: 3.875rem;
+        }
+    }
+}
+

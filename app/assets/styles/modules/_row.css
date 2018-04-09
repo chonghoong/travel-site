@@ -1,0 +1,58 @@
+.row {
+
+    /* this css selector will add a blank space (content: "") after 
+    all the content in the main row div */
+    /* should make it as a mixin */
+    @mixin clearfix;
+
+    /* apply to the row to negate the 65 px */
+    &--gutters {
+        margin-right: -65px;
+    }
+
+    /* only apply the gutter effect to the direct children <div> 
+    not the row */
+    &--gutters > div {
+
+        /* cannot combined width > 100% */
+        /* add a gutter for each colunmn */
+        padding-right: 65px;
+        
+        /* change the way browsers calculate the width value */
+        /* padding is honored as well as the width % */
+        /* set it once to global file */
+        /* box-sizing: border-box; */
+    }
+
+    /* background-color: yellow; */
+    
+    /* .clear-me { */
+        /* clear the floats */
+        /* clear: both; */
+    /* } */
+
+    @mixin atMedium {
+        &__medium-4 {
+            
+            /* when we float an element, we take it out of the normal flow of th epage */
+            float: left;
+            
+            /* per column 100/12 = 8.3%. 4 columns = 33.33% */
+            width: 33.33%
+        }
+
+        &__medium-4--larger{
+            width: 37%;
+        }
+    
+        &__medium-8 {
+            float: left;
+            width: 66.66%;
+        }
+
+        &__medium-8--smaller {
+            width: 63%;
+        }
+    }
+
+}
