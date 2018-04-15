@@ -35,6 +35,12 @@ gulp.task('watch', function() {
         // run the cssInject tsaks instead
         gulp.start('cssInject');
       });
+
+      // watch for changes in js
+      watch('./app/assets/scripts/**/*.js', function() {
+        gulp.start('scriptsRefresh');
+      })
+
     });
 
 // for only css can inject on the fly
@@ -46,4 +52,9 @@ gulp.task('cssInject', ['styles'], function() {
       return gulp.src('./app/temp/styles/styles.css')
         .pipe(browserSync.stream());
     
+    });
+
+
+    gulp.task('scriptsRefresh', ['scripts'], function() {
+      browserSync.reload();
     });

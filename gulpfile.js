@@ -1,7 +1,7 @@
 // when use require function, don't need the .js function
-require ('./gulp/tasks/styles');
+require('./gulp/tasks/styles');
 require('./gulp/tasks/watch');
-
+require('./gulp/tasks/scripts');
 
 // var gulp  = require('gulp'),
     // watch = require('gulp-watch'),
